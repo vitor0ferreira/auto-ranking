@@ -8,9 +8,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <RankingArea dados={data}>
-
-        </RankingArea>
+        <RankingArea dados={data}/>
         <Footer/>
       </div>
     </>
@@ -33,12 +31,9 @@ function RankingArea(props) {
     <StyledMain>
       {veiculos.carros.map((nomesData)=> {
         return (
-          <Card>
-
-          </Card>
+          <Card nomeCarro={nomesData.nome} anoCarro={nomesData.ano}/>
         )
-      })
-      
+        })
       }
     </StyledMain>
   )
