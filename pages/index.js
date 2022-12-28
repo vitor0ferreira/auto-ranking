@@ -33,7 +33,7 @@ function RankingArea(props) {
         return (
           <Card nomeCarro={nomesData.nome} anoCarro={nomesData.ano}/>
         )
-      })
+        })
       }
     </StyledMain>
   )
