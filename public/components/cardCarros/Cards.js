@@ -11,6 +11,9 @@ export default function Card(props) {
                 <span>
                     Ano: {props.anoCarro}
                 </span>
+                <span>
+                    Estado: Novo
+                </span>
             </StyledCard>
         </>
     )
@@ -18,33 +21,38 @@ export default function Card(props) {
 
 const StyledCard = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 0 2rem;
     justify-content: flex-start;
-    gap: 15px;
-    border-radius: 5px;
-    margin: 10px;
-    background-color: white;
+    margin: 2px 0;
+    padding: 5px;
+    border-radius: 2px;
+    background-color: #000;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     color: black;
     min-width: fit-content;
-    width: 150px;
-    height: 50px;
+    width: 100%;
+    height: 80px;
     cursor: pointer;
     transition: ease-in-out .1s;
     span {
+        flex: 1;
         height: 100%;
-        text-align: center;
-        padding: .5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
         border: 1px solid #000;
+        border-radius: 4px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1rem;
         font-weight: bold;
-    }
-    :hover{
-        transform: scale(1.15);
         background-color: #f1f1f1;
     }
-    
+    :hover{
+        span{
+            background-color: #f4ab00;
+        }
+        transform: scale(0.95);
+        background-color: #4b4b4b;
+    }
 `;
