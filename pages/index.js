@@ -31,10 +31,10 @@ function RankingArea(props) {
 
   return (
       <StyledRankArea>
-        <div style={{width: "50%", height: "100%"}}>
-          {veiculos.carros.map((nomesData)=> {
+        <div style={{width: "50%", height: "100%", overflow: "scroll", padding: "5px", backgroundColor: "#fff", overflowX: "hidden"}}>
+          {veiculos.carros.map((dadosCarros)=> {
             return (
-              <Card nomeCarro={nomesData.nome} anoCarro={nomesData.ano}/>
+              <Card nomeCarro={dadosCarros.nome} anoCarro={dadosCarros.ano} fotoCarro={dadosCarros.foto} />
             )
           })
           }
@@ -47,7 +47,7 @@ const StyledRankArea = styled.div`
   display: flex;
   height: 80%;
   width: 80%;
+  padding: 10px;
   background-color: #1aaa4e;
-  border-radius: 5%;
   box-shadow: 5px 5px 10px rgba(0,0,0, 0.6);
 `;
