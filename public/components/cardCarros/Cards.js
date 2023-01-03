@@ -38,7 +38,7 @@ const StyledCard = styled.div`
     width: 100%;
     height: 80px;
     cursor: pointer;
-    transition: ease-in-out .1s;
+    transition: ease-in-out .3s;
     span {
         flex: 1;
         height: 100%;

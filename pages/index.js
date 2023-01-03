@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Footer from "../public/components/footer/footer"
 import styled from "styled-components";
 import Card from "../public/components/cardCarros/Cards";
@@ -28,6 +28,7 @@ const StyledMain = styled.div`
 function RankingArea(props) {
 
   const veiculos = props.dados;
+  const [countCards, SetcountCards] = useState(0);
 
   return (
       <StyledRankArea>
@@ -46,6 +47,15 @@ function RankingArea(props) {
             )
           })
           }
+        </div>
+        <div style={{backgroundColor: "red", height: "100%", width: "50%"}}>
+          <button onClick={()=>{
+            SetcountCards(countCards + 1);
+            const car = veiculos.carros[countCards];
+            return (<Card nomeCarro={car.nome} anoCarro={car.ano} fotoCarro={car.foto}/>)
+            }}>+1</button>
+          <button onClick={()=>{SetcountCards(countCards - 1)}}>-1</button>
+          {countCards}
         </div>
       </StyledRankArea>
   )
