@@ -28,10 +28,17 @@ const StyledMain = styled.div`
 function RankingArea(props) {
 
   const veiculos = props.dados;
-  const [countCards, SetcountCards] = useState(0);
+  const lista = veiculos.carros;
+  const [count, Setcount] = useState(0);
+  const [listaCarros, SetListaCarros] = useState([]);
+
+  function addCard() {
+    SetListaCarros([...listaCarros, lista[count]]);
+    console.log(listaCarros);
+  }
 
   return (
-      <StyledRankArea>
+      <StyledRankArea >
         <div style={{
           width: "50%",
           height: "100%",
@@ -39,23 +46,31 @@ function RankingArea(props) {
           padding: "5px",
           backgroundColor: "#fff",
           overflowX: "hidden"
-          }}>
-
+          }} key={veiculos} >
           {veiculos.carros.map((dadosCarros)=> {
             return (
-              <Card nomeCarro={dadosCarros.nome} anoCarro={dadosCarros.ano} fotoCarro={dadosCarros.foto} />
+              <Card nomeCarro={dadosCarros.nome} anoCarro={dadosCarros.ano} fotoCarro={dadosCarros.foto}/>
             )
           })
           }
         </div>
         <div style={{backgroundColor: "red", height: "100%", width: "50%"}}>
-          <button onClick={()=>{
-            SetcountCards(countCards + 1);
-            const car = veiculos.carros[countCards];
-            return (<Card nomeCarro={car.nome} anoCarro={car.ano} fotoCarro={car.foto}/>)
-            }}>+1</button>
-          <button onClick={()=>{SetcountCards(countCards - 1)}}>-1</button>
-          {countCards}
+          <button
+            onClick={()=>{
+              Setcount(count + 1);
+              addCard();
+            }}>
+              +1
+          </button>
+          <button
+            onClick={()=>{
+              listaCarros.pop();
+              console.log(listaCarros);
+              Setcount(count - 1);
+            }}>
+              -1
+          </button>
+          {count}
         </div>
       </StyledRankArea>
   )

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export default function Card(props) {
 
     return (
-        <>
             <StyledCard>
                 <img src={props.fotoCarro} ></img>
                 <span>
@@ -16,7 +15,6 @@ export default function Card(props) {
                     Estado: Novo
                 </span>
             </StyledCard>
-        </>
     )
 }
 
